@@ -1,0 +1,36 @@
+###############################################################################################
+# git - got a "g-" prefix
+
+# git basic
+alias g-st="git status"
+alias g-co="git checkout"
+alias g-br="git branch"
+alias g-rb="git rebase"
+alias g-p="git push"
+
+# git push
+alias g-pf="g-p -f"
+alias g-pu="g-p -u"
+
+alias g-c="git commit"
+alias g-cm="git commit -m"
+alias g-ca="git commit --amend"
+
+# git-revert
+alias g-r="git checkout -- . && git status"
+
+# git add
+alias g-a="git add -u && g-st"
+alias g-a-c="git add -u && g-c"
+alias g-a-cm="git add -u && g-cm"
+alias g-a-ca="git add -u && g-ca"
+
+# git log
+alias g-l="git log --graph --all --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'"
+alias g-ll="git log --stat --abbrev-commit"
+alias g-lg="git log --color --graph --pretty=format:'%C(bold white)%h%Creset -%C(bold green)%d%Creset %s %C(bold green)(%cr)%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+alias g-llg="git log --color --graph --pretty=format:'%C(bold white)%H %d%Creset%n%s%n%+b%C(bold blue)%an <%ae>%Creset %C(bold green)%cr (%ci)' --abbrev-commit"
+alias g-lol="git log --graph --decorate --pretty=oneline --abbrev-commit --all"
+
+alias aliases-list-git="cat ~/.aliases-git"
+

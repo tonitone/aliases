@@ -1,0 +1,12 @@
+################################################################################################
+# docker - got a "d-" prefix
+
+# docker-system stuff
+alias d-up="docker-compose up -d && echo 'maybe you want do delete dyndata-tmp?'"
+alias d-down="docker-compose down -v"
+alias d-restart="d-down && d-up" 
+alias d-update-images="./docker/update-images.sh"
+alias d-stop="docker-compose stop"
+alias d-start="docker-compose start"
+
+alias aliases-list-docker="cat ~/.aliases-docker"
