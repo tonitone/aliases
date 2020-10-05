@@ -1,36 +1,70 @@
 ###############################################################################################
 # git - got a "g-" prefix
 
-# git basic
-alias g-st="git status"
-alias g-co="git checkout"
+# create a global .gitignore and add some files to it
+alias g-copy-global-gitignore-file-and-register-it='if [ -f ~/.gitignore_global ]; then echo "~/.gitignore_global exists"; else cp .gitignore_global ~/.gitignore_global && git config --global core.excludesfile ~/.gitignore_global && echo "~/.gitignore_global file created and registered in git-config"; fi'
+
+# git branch
 alias g-br="git branch"
+alias g-brd="git branch -D"
+alias g-br-by-date='for k in `git branch|sed s/^..//`;do echo -e `git log -1 --pretty=format:"%Cgreen%ci %Cblue%cr%Creset" "$k"`\\t"$k";done|sort'
+
+# git checkout
+alias g-co="git checkout"
+alias g-cob="git checkout -b"
+
+# git fetch
+alias g-f="git fetch"
+alias g-fa="git fetch --all"
+
+# git rebase
 alias g-rb="git rebase"
-alias g-p="git push"
+alias g-rba="git rebase --abort"
+alias g-rbc="git rebase --continue"
+alias g-rbi="git rebase -i"
+alias g-rbs="git rebase --skip"
+
+# git status
+alias g-st="git status"
+alias g-sts="git status -s -b"
+
+# git delete untracked files
+alias g-clean="git clean -fd"
 
 # git push
-alias g-pf="g-p -f"
-alias g-pu="g-p -u"
+alias g-p="git push"
+alias g-pf="git push --force-with-lease"
+alias g-pu="git push -u"
 
-alias g-c="git commit"
-alias g-cm="git commit -m"
-alias g-ca="git commit --amend"
+# git commit
+alias g-c="git commit -v"
+alias g-cm="git commit -v -m"
+alias g-ca="git commit -v --amend"
+alias g-can="git commit --amend --no-edit"
 
 # git-revert
 alias g-r="git checkout -- . && git status"
 
 # git add
-alias g-a="git add -u && g-st"
-alias g-a-c="git add -u && g-c"
-alias g-a-cm="git add -u && g-cm"
-alias g-a-ca="git add -u && g-ca"
+alias g-a="git add"
+alias g-aa="git add -A && git status" # stages all changes
+alias g-au="git add -u && git status" # stages modifications and deletions, without new files
+
+# git add && commit
+alias g-aa-c="git add -A && git commit"
+alias g-au-c="git add -u && git commit"
+alias g-au-cm="git add -u && git commit -v -m"
+alias g-au-ca="git add -u && git commit -v --amend"
+alias g-au-can-="git add -u && git commit --amend --no-edit"
+alias g-au-can-p="git add -u && git commit --amend --no-edit && git push"
+alias g-au-can-pf="git add -u && git commit --amend --no-edit && git push --force-with-lease"
 
 # git log
-alias g-l="git log --graph --all --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'"
-alias g-ll="git log --stat --abbrev-commit"
-alias g-lg="git log --color --graph --pretty=format:'%C(bold white)%h%Creset -%C(bold green)%d%Creset %s %C(bold green)(%cr)%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
-alias g-llg="git log --color --graph --pretty=format:'%C(bold white)%H %d%Creset%n%s%n%+b%C(bold blue)%an <%ae>%Creset %C(bold green)%cr (%ci)' --abbrev-commit"
+alias g-l="git log --color --pretty=format:'%Cred%H%Creset %C(bold green)%ad%Creset %C(bold blue)<%an>%Creset %C(bold green)%d%Creset %s %C(bold green)(parent:%P)' --abbrev-commit --date=format:'%Y-%m-%d %H:%M'"
+alias g-lp="git log --color --pretty=format:'%Cred%H%Creset %C(bold green)%ad%Creset %C(bold blue)<%an>%Creset %C(bold green)%d%Creset %s %C(bold green)(parent:%P)' --abbrev-commit --date=format:'%Y-%m-%d %H:%M' -p"
+alias g-lg="git log --graph --color --pretty=format:'%Cred%H%Creset %C(bold green)%ad%Creset %C(bold blue)<%an>%Creset %C(bold green)%d%Creset %s %C(bold green)(parent:%P)' --abbrev-commit --date=format:'%Y-%m-%d %H:%M'"
+alias g-lg="git log --graph --color --pretty=format:'%Cred%H%Creset %C(bold green)%ad%Creset %C(bold blue)<%an>%Creset %C(bold green)%d%Creset %s %C(bold green)(parent:%P)' --abbrev-commit --date=format:'%Y-%m-%d %H:%M' -p"
 alias g-lol="git log --graph --decorate --pretty=oneline --abbrev-commit --all"
 
-alias aliases-list-git="cat ~/.aliases-git"
-
+# misc
+alias g-d="git diff"
