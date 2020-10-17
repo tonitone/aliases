@@ -1,0 +1,9 @@
+convertAudioAifToMp3() {
+    if [[ $# -eq 0 ]] ; then
+        echo "convertAudio aif mp3 // converts all files with aif extensions to mp3"
+    else
+
+        #find . -name "*.aif" -exec ffmpeg -i {} -acodec libmp3lame -ab 320k {}.mp3 \;
+        find . -name "*.aif" -exec ffmpeg -i "$a" -ab 320k -ar 48k -qscale:a 0 "${a[@]/%$1/$2}" \;
+    fi
+}
