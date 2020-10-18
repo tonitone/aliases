@@ -1,9 +1,15 @@
-convertAudioAifToMp3() {
+audio-convert() {
     if [[ $# -eq 0 ]] ; then
-        echo "convertAudio aif mp3 // converts all files with aif extensions to mp3"
-    else
+        echo "audio-convert aif mp3 // converts all files with aif extensions to mp3"
+    else  
+        find . -name "*.$1" -exec ffmpeg -i {} -ab 320k -ar 48k -qscale:a 0 "${0%.$1}.$2" \;
+    fi
+}
 
-        #find . -name "*.aif" -exec ffmpeg -i {} -acodec libmp3lame -ab 320k {}.mp3 \;
-        find . -name "*.aif" -exec ffmpeg -i "$a" -ab 320k -ar 48k -qscale:a 0 "${a[@]/%$1/$2}" \;
+audio-delete() {
+    if [[ $# -eq 0 ]] ; then
+        echo "audio-delete delete mp3 // delete all audiofiles with the extension mp3"
+    else
+        find . -name "*.$2" -exec rm {} \;
     fi
 }
