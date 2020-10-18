@@ -1,8 +1,10 @@
 audio-convert() {
     if [[ $# -eq 0 ]] ; then
         echo "audio-convert aif mp3 // converts all files with aif extensions to mp3"
-    else  
-        find . -name "*.$1" -exec ffmpeg -i {} -ab 320k -ar 48k -qscale:a 0 "${0%.$1}.$2" \;
+    else 
+        # TODO: fix the next line
+        #find . -name "*.$1" -exec ffmpeg -i {} -ab 320k -ar 48k -qscale:a 0 "${0%.$1}.$2" \;
+        find . -name "*.$1" -exec ffmpeg -i {} -ab 320k -ar 48k -qscale:a 0 "{}.$2" \;
     fi
 }
 
