@@ -1,6 +1,6 @@
 alias aliases-copy-and-source="cp .aliases* ~/ && source ~/.aliases"
 
 source ~/.aliases-bash
+source ~/.aliases-docker
 source ~/.aliases-ffmpg
 source ~/.aliases-git
-source ~/.aliases-docker
