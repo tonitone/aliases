@@ -8,8 +8,8 @@ audio-convert() {
 
 audio-delete() {
     if [[ $# -eq 0 ]] ; then
-        echo "audio-delete delete mp3 // delete all audiofiles with the extension mp3"
+        echo "audio-delete mp3 // delete all audiofiles with the extension mp3"
     else
-        find . -name "*.$2" -exec rm {} \;
+        find . -name "*.$1" -exec rm {} \;
     fi
 }
