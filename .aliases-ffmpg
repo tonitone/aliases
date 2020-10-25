@@ -8,6 +8,10 @@ audio-convert() {
     fi
 }
 
+audio-meta-set-artist() {
+    find . -name "*.mp3" -exec sh -c 'ffmpeg -i {} -metadata artist="Toni Ivanisevic" tmp.mp3 ; mv -f tmp.mp3 {}' \;
+}
+
 audio-delete() {
     if [[ $# -eq 0 ]] ; then
         echo "audio-delete mp3 // delete all audiofiles with the extension mp3"
