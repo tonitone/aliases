@@ -60,6 +60,7 @@ alias g-au-can-pf="git add -u && git commit --amend --no-edit && git push --forc
 
 # git log
 alias g-l="git log --color --pretty=format:'%Cred%H%Creset %C(bold green)%ad%Creset %C(bold blue)<%an>%Creset %C(bold green)%d%Creset %s %C(bold green)(parent:%P)' --abbrev-commit --date=format:'%Y-%m-%d %H:%M'"
+alias g-ll="git log --pretty=format:'%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]' --decorate --numstat"
 alias g-lp="git log --color --pretty=format:'%Cred%H%Creset %C(bold green)%ad%Creset %C(bold blue)<%an>%Creset %C(bold green)%d%Creset %s %C(bold green)(parent:%P)' --abbrev-commit --date=format:'%Y-%m-%d %H:%M' -p"
 alias g-lg="git log --graph --color --pretty=format:'%Cred%H%Creset %C(bold green)%ad%Creset %C(bold blue)<%an>%Creset %C(bold green)%d%Creset %s %C(bold green)(parent:%P)' --abbrev-commit --date=format:'%Y-%m-%d %H:%M'"
 alias g-lg="git log --graph --color --pretty=format:'%Cred%H%Creset %C(bold green)%ad%Creset %C(bold blue)<%an>%Creset %C(bold green)%d%Creset %s %C(bold green)(parent:%P)' --abbrev-commit --date=format:'%Y-%m-%d %H:%M' -p"
