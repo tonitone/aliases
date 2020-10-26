@@ -1,13 +1,8 @@
-# NOT every command would run in your bash or your system or workflow
-# THE git and docker part should be interessting for most of you
-
 # include this file in your .bashrc, .bash_profile or any other bash configuration file
 
-###############################################################################################
 # start directory, when opening a shell
 cd ~/src/
 
-################################################################################################
 # Always list directory contents upon 'cd'
 cd() { builtin cd "$@"; ls -alF; }
 
@@ -98,7 +93,7 @@ ffe () { /usr/bin/find . -name '*'"$@" ; }
 #   ------------------------------------------------------------
     my_ps() { ps $@ -u $USER -o pid,%cpu,%mem,start,time,bsdtime,command ; }
 
-###############################################################################################
+
 # MAC specific settings
 
 # terminal settings

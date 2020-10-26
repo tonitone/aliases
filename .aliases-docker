@@ -1,7 +1,3 @@
-################################################################################################
-# docker - got a "d-" prefix
-
-# docker-system stuff
 alias d-up="docker-compose up -d"
 alias d-down="docker-compose down -v --remove-orphans"
 alias d-reboot="d-down && d-up" 
@@ -10,4 +6,3 @@ alias d-start="docker-compose start"
 alias d-restart="d-stop && d-start"
 alias d-kill-all-container="docker kill $(docker ps -q)"
 alias d-delete-all-stopped-container="docker rm $(docker ps -a -q)"
-

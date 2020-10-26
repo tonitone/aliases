@@ -1,3 +1,5 @@
+# ffmpeg conversion aliases
+
 audio-convert() {
     if [[ $# -eq 0 ]] ; then
         echo "audio-convert aif mp3 // converts all files with aif extensions to mp3"
