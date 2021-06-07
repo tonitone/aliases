@@ -1,7 +1,7 @@
 # include this file in your .bashrc, .bash_profile or any other bash configuration file
 
 # start directory, when opening a shell
-cd ~/src/
+cd ~/
 
 # Always list directory contents upon 'cd'
 cd() { builtin cd "$@"; ls -alF; }
